@@ -25,14 +25,13 @@
                 {% if not comment.approved_comment %}
                     <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
                     <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
-                {% endif %
+                {% endif %}
             </div>
             <strong>{{ comment.author }}</strong>
             <p>{{ comment.text|linebreaks }}</p>
         </div>
         {% endif %}
-    {% else %}
+    {% empty %}
         <p>No comments here yet :(</p>
-    {% endif %}
     {% endfor %}
 {% endblock %}
